@@ -80,7 +80,7 @@ def save(path, data):
 
 def cmd_set(path, slot, file, line, col):
     """Toggle a bookmark position in a slot."""
-    # Normalise to absolute path
+    # Normalize to absolute path
     file = os.path.abspath(file)
     data = load(path)
     positions = data.get(slot, [])

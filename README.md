@@ -65,8 +65,9 @@ Copy from [`config/tasks.json`](config/tasks.json) into
 Copy from [`config/tasks-windows.json`](config/tasks-windows.json) into
 `%APPDATA%\Zed\tasks.json`.
 
-> The Windows variant uses `python` instead of `python3` to match the default
-> Python launcher on Windows.
+> The Windows variant uses `python` instead of `python3` because on Windows
+> the Python 3 executable installed from python.org or the Microsoft Store is
+> named `python`.
 
 </details>
 
