@@ -229,10 +229,13 @@ def cmd_diagnose():
     else:
         print(f"  exists          : no (directory {bdir} does not exist yet)")
 
-    writable = os.access(bdir, os.W_OK) if os.path.isdir(bdir) else os.access(os.path.dirname(bdir), os.W_OK)
-    print(f"  directory writable : {writable}")
-    if not writable:
-        ok = False
+    if os.path.isdir(bdir):
+        writable = os.access(bdir, os.W_OK)
+        print(f"  directory writable : {writable}")
+        if not writable:
+            ok = False
+    else:
+        print(f"  directory writable : (will be created on first use)")
 
     # 3. zed CLI
     zed_cmd = shutil.which("zed")
@@ -257,9 +260,10 @@ def cmd_diagnose():
     # 6. Summary
     print()
     if ok:
+        py_cmd = "py" if platform.system() == "Windows" else "python3"
         print("All checks passed. If bookmarks still aren't working, run a")
         print("task with BOOKMARK_VERBOSE=1 to see step-by-step output, e.g.:")
-        print('  BOOKMARK_VERBOSE=1 python3 scripts/bookmark.py set 1 test.py 1')
+        print(f"  BOOKMARK_VERBOSE=1 {py_cmd} scripts/bookmark.py set 1 test.py 1")
     else:
         print("Some checks FAILED — see above for details.")
 
