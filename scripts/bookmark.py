@@ -16,6 +16,14 @@ Usage:
 
   bookmark.py clear <slot>|all                      Remove bookmarks.
 
+  bookmark.py diagnose                              Check Python, paths, zed
+                                                     CLI, and env — useful for
+                                                     debugging silent failures.
+
+Options:
+  --verbose / -v       Print step-by-step trace to stderr.
+                       Also enabled by setting BOOKMARK_VERBOSE=1.
+
 The script persists state in:
   $BOOKMARK_FILE   (env override)
 
@@ -33,6 +41,16 @@ import platform
 import shutil
 import subprocess
 import sys
+
+# ── verbose logging ───────────────────────────────────────────────────────────
+
+VERBOSE = os.environ.get("BOOKMARK_VERBOSE", "") not in ("", "0", "false")
+
+
+def log(msg):
+    """Print a diagnostic message to stderr when verbose mode is enabled."""
+    if VERBOSE:
+        print(f"[bookmark] {msg}", file=sys.stderr)
 
 
 def get_default_bookmark_dir():
@@ -80,8 +98,10 @@ def save(path, data):
 
 def cmd_set(path, slot, file, line, col):
     """Toggle a bookmark position in a slot."""
+    log(f"set: slot={slot} file={file} line={line} col={col}")
     # Normalize to absolute path
     file = os.path.abspath(file)
+    log(f"set: resolved file to {file}")
     data = load(path)
     positions = data.get(slot, [])
     entry = {"file": file, "line": int(line), "col": int(col)}
@@ -107,15 +127,18 @@ def cmd_set(path, slot, file, line, col):
         del data[idx_key]
 
     save(path, data)
+    log(f"set: saved to {path}")
 
 
 def cmd_jump(path, slot):
     """Navigate to the next bookmark in a slot."""
+    log(f"jump: slot={slot}")
     data = load(path)
     positions = data.get(slot, [])
 
     if not positions:
         print(f"No bookmarks in slot {slot}", file=sys.stderr)
+        log("jump: no bookmarks found in slot")
         return
 
     idx_key = f"_idx_{slot}"
@@ -131,8 +154,10 @@ def cmd_jump(path, slot):
     # Open in the current Zed instance (single-instance IPC)
     zed_cmd = shutil.which("zed")
     if zed_cmd:
+        log(f"jump: running {zed_cmd} {target}")
         subprocess.run([zed_cmd, target])
     else:
+        log("jump: 'zed' not found in PATH")
         print(
             "WARNING: 'zed' not found in PATH; cannot navigate automatically.",
             file=sys.stderr,
@@ -175,15 +200,94 @@ def print_help():
         print(line)
 
 
+def cmd_diagnose():
+    """Check the full bookmark pipeline and report potential problems."""
+    ok = True
+
+    # 1. Python
+    print(f"Python executable : {sys.executable}")
+    print(f"Python version    : {sys.version}")
+
+    # 2. Bookmark file
+    path = get_bookmark_file()
+    print(f"Bookmark file     : {path}")
+    bdir = os.path.dirname(path)
+    if os.path.isfile(path):
+        print(f"  exists          : yes")
+        try:
+            data = load(path)
+            count = sum(
+                1 for k, v in data.items()
+                if not k.startswith("_idx_") and isinstance(v, list)
+            )
+            print(f"  slots with data : {count}")
+        except Exception as e:
+            print(f"  ERROR reading   : {e}")
+            ok = False
+    elif os.path.isdir(bdir):
+        print(f"  exists          : no (directory exists, file will be created on first use)")
+    else:
+        print(f"  exists          : no (directory {bdir} does not exist yet)")
+
+    writable = os.access(bdir, os.W_OK) if os.path.isdir(bdir) else os.access(os.path.dirname(bdir), os.W_OK)
+    print(f"  directory writable : {writable}")
+    if not writable:
+        ok = False
+
+    # 3. zed CLI
+    zed_cmd = shutil.which("zed")
+    if zed_cmd:
+        print(f"zed CLI           : {zed_cmd}")
+    else:
+        print("zed CLI           : NOT FOUND in PATH")
+        print("  (jump commands will not be able to navigate automatically)")
+        ok = False
+
+    # 4. Environment variables (set by Zed task runner)
+    for var in ("ZED_FILE", "ZED_ROW", "ZED_COLUMN"):
+        val = os.environ.get(var)
+        if val:
+            print(f"${var:16s}: {val}")
+        else:
+            print(f"${var:16s}: not set (normal outside a Zed task)")
+
+    # 5. Platform
+    print(f"Platform          : {platform.system()} {platform.release()}")
+
+    # 6. Summary
+    print()
+    if ok:
+        print("All checks passed. If bookmarks still aren't working, run a")
+        print("task with BOOKMARK_VERBOSE=1 to see step-by-step output, e.g.:")
+        print('  BOOKMARK_VERBOSE=1 python3 scripts/bookmark.py set 1 test.py 1')
+    else:
+        print("Some checks FAILED — see above for details.")
+
+
 # ── dispatch ──────────────────────────────────────────────────────────────────
 
 
 def main():
+    global VERBOSE
     args = sys.argv[1:]
+
+    # Allow --verbose / -v anywhere in args
+    if "--verbose" in args or "-v" in args:
+        VERBOSE = True
+        args = [a for a in args if a not in ("--verbose", "-v")]
+
     command = args[0] if args else "help"
     rest = args[1:]
 
+    log(f"command={command} args={rest}")
+    log(f"python={sys.executable}")
+
+    if command == "diagnose":
+        cmd_diagnose()
+        return
+
     path = get_bookmark_file()
+    log(f"bookmark_file={path}")
     ensure_file(path)
 
     if command == "set":
@@ -209,7 +313,7 @@ def main():
         print_help()
     else:
         print(f"Unknown command: {command}", file=sys.stderr)
-        print("Usage: bookmark.py {set|jump|list|clear|help}", file=sys.stderr)
+        print("Usage: bookmark.py {set|jump|list|clear|diagnose|help}", file=sys.stderr)
         sys.exit(1)
 
 

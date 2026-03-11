@@ -22,7 +22,9 @@
       "ctrl-shift-6": ["task::Spawn", { "task_tag": "bookmark-set-6" }],
       "ctrl-shift-7": ["task::Spawn", { "task_tag": "bookmark-set-7" }],
       "ctrl-shift-8": ["task::Spawn", { "task_tag": "bookmark-set-8" }],
-      "ctrl-shift-9": ["task::Spawn", { "task_tag": "bookmark-set-9" }]
+      "ctrl-shift-9": ["task::Spawn", { "task_tag": "bookmark-set-9" }],
+
+      "ctrl-shift-d": ["task::Spawn", { "task_tag": "bookmark-diagnose" }]
     }
   }
 ]

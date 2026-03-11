@@ -183,10 +183,38 @@ the running Zed instance and opens the target location in your existing window.
 
 ### `python3` not found (Windows)
 
-On Windows, the Python executable is usually called `python` rather than
+On Windows, the Python executable is usually called `python` or `py` rather than
 `python3`. Use the task definitions from
-[`config/tasks-windows.json`](config/tasks-windows.json) which reference
-`python` instead.
+[`config/tasks-windows.json`](config/tasks-windows.json) which reference `py`
+(the [Python Launcher for Windows](https://docs.python.org/3/using/windows.html#python-launcher-for-windows)).
+
+> **Tip:** If `py` is not available either, replace the `"command"` value in the
+> task definitions with whichever command starts Python 3 on your system (e.g.
+> `python`).
+
+### Running the built-in diagnostic
+
+The extension ships a `diagnose` subcommand that checks your environment in one
+step:
+
+```sh
+# macOS / Linux
+python3 scripts/bookmark.py diagnose
+
+# Windows
+py scripts/bookmark.py diagnose
+```
+
+Or run the **bookmark-diagnose** task from Zed's command palette. The task is
+configured with `"reveal": "always"` so output is always visible.
+
+You can also enable **verbose tracing** for any command by passing `--verbose`
+(or `-v`), or by setting `BOOKMARK_VERBOSE=1`:
+
+```sh
+python3 scripts/bookmark.py --verbose set 1 src/main.rs 42
+BOOKMARK_VERBOSE=1 python3 scripts/bookmark.py jump 1
+```
 
 ### Bookmarks not persisting
 

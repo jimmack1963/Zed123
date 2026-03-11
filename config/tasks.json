@@ -268,5 +268,16 @@
     "tags": ["bookmark-set-9"],
     "hide": "on_success",
     "reveal": "never"
+  },
+  {
+    "label": "bookmark-diagnose",
+    "command": "python3",
+    "args": [
+      "$HOME/.config/zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
+      "diagnose"
+    ],
+    "tags": ["bookmark-diagnose"],
+    "hide": "never",
+    "reveal": "always"
   }
 ]
