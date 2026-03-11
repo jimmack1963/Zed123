@@ -1,7 +1,7 @@
 [
   {
     "label": "bookmark-jump-0",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "jump",
@@ -13,7 +13,7 @@
   },
   {
     "label": "bookmark-jump-1",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "jump",
@@ -25,7 +25,7 @@
   },
   {
     "label": "bookmark-jump-2",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "jump",
@@ -37,7 +37,7 @@
   },
   {
     "label": "bookmark-jump-3",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "jump",
@@ -49,7 +49,7 @@
   },
   {
     "label": "bookmark-jump-4",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "jump",
@@ -61,7 +61,7 @@
   },
   {
     "label": "bookmark-jump-5",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "jump",
@@ -73,7 +73,7 @@
   },
   {
     "label": "bookmark-jump-6",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "jump",
@@ -85,7 +85,7 @@
   },
   {
     "label": "bookmark-jump-7",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "jump",
@@ -97,7 +97,7 @@
   },
   {
     "label": "bookmark-jump-8",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "jump",
@@ -109,7 +109,7 @@
   },
   {
     "label": "bookmark-jump-9",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "jump",
@@ -121,7 +121,7 @@
   },
   {
     "label": "bookmark-set-0",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "set",
@@ -136,7 +136,7 @@
   },
   {
     "label": "bookmark-set-1",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "set",
@@ -151,7 +151,7 @@
   },
   {
     "label": "bookmark-set-2",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "set",
@@ -166,7 +166,7 @@
   },
   {
     "label": "bookmark-set-3",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "set",
@@ -181,7 +181,7 @@
   },
   {
     "label": "bookmark-set-4",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "set",
@@ -196,7 +196,7 @@
   },
   {
     "label": "bookmark-set-5",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "set",
@@ -211,7 +211,7 @@
   },
   {
     "label": "bookmark-set-6",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "set",
@@ -226,7 +226,7 @@
   },
   {
     "label": "bookmark-set-7",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "set",
@@ -241,7 +241,7 @@
   },
   {
     "label": "bookmark-set-8",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "set",
@@ -256,7 +256,7 @@
   },
   {
     "label": "bookmark-set-9",
-    "command": "python",
+    "command": "py",
     "args": [
       "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
       "set",
@@ -268,5 +268,16 @@
     "tags": ["bookmark-set-9"],
     "hide": "on_success",
     "reveal": "never"
+  },
+  {
+    "label": "bookmark-diagnose",
+    "command": "py",
+    "args": [
+      "$APPDATA/Zed/extensions/bookmark-quick-jump/scripts/bookmark.py",
+      "diagnose"
+    ],
+    "tags": ["bookmark-diagnose"],
+    "hide": "never",
+    "reveal": "always"
   }
 ]
