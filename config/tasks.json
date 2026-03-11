@@ -1,0 +1,252 @@
+[
+  {
+    "label": "bookmark-jump-0",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "jump",
+      "0"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-jump-1",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "jump",
+      "1"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-jump-2",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "jump",
+      "2"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-jump-3",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "jump",
+      "3"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-jump-4",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "jump",
+      "4"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-jump-5",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "jump",
+      "5"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-jump-6",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "jump",
+      "6"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-jump-7",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "jump",
+      "7"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-jump-8",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "jump",
+      "8"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-jump-9",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "jump",
+      "9"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-set-0",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "set",
+      "0",
+      "$ZED_FILE",
+      "$ZED_ROW",
+      "$ZED_COLUMN"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-set-1",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "set",
+      "1",
+      "$ZED_FILE",
+      "$ZED_ROW",
+      "$ZED_COLUMN"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-set-2",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "set",
+      "2",
+      "$ZED_FILE",
+      "$ZED_ROW",
+      "$ZED_COLUMN"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-set-3",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "set",
+      "3",
+      "$ZED_FILE",
+      "$ZED_ROW",
+      "$ZED_COLUMN"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-set-4",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "set",
+      "4",
+      "$ZED_FILE",
+      "$ZED_ROW",
+      "$ZED_COLUMN"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-set-5",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "set",
+      "5",
+      "$ZED_FILE",
+      "$ZED_ROW",
+      "$ZED_COLUMN"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-set-6",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "set",
+      "6",
+      "$ZED_FILE",
+      "$ZED_ROW",
+      "$ZED_COLUMN"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-set-7",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "set",
+      "7",
+      "$ZED_FILE",
+      "$ZED_ROW",
+      "$ZED_COLUMN"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-set-8",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "set",
+      "8",
+      "$ZED_FILE",
+      "$ZED_ROW",
+      "$ZED_COLUMN"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  },
+  {
+    "label": "bookmark-set-9",
+    "command": "bash",
+    "args": [
+      "${ZED_EXTENSION_DIR:-$HOME/.config/zed/extensions/bookmark-quick-jump}/scripts/bookmark.sh",
+      "set",
+      "9",
+      "$ZED_FILE",
+      "$ZED_ROW",
+      "$ZED_COLUMN"
+    ],
+    "hide": "on_success",
+    "reveal": "never"
+  }
+]

@@ -1,0 +1,12 @@
+id = "bookmark-quick-jump"
+name = "Bookmark Quick Jump"
+description = "Jump to numbered bookmarks (0-9) across any open files. Assign multiple locations per slot and cycle through them."
+version = "0.1.0"
+schema_version = 1
+authors = ["jimmack1963"]
+repository = "https://github.com/jimmack1963/Zed123"
+
+[slash_commands.bookmark]
+description = "Manage numbered bookmark slots (0-9) for quick navigation"
+requires_argument = false
+tooltip_text = "Set, jump to, list, or clear bookmarks"

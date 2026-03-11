@@ -1,0 +1,28 @@
+[
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-0": ["task::Spawn", { "task_name": "bookmark-jump-0" }],
+      "ctrl-1": ["task::Spawn", { "task_name": "bookmark-jump-1" }],
+      "ctrl-2": ["task::Spawn", { "task_name": "bookmark-jump-2" }],
+      "ctrl-3": ["task::Spawn", { "task_name": "bookmark-jump-3" }],
+      "ctrl-4": ["task::Spawn", { "task_name": "bookmark-jump-4" }],
+      "ctrl-5": ["task::Spawn", { "task_name": "bookmark-jump-5" }],
+      "ctrl-6": ["task::Spawn", { "task_name": "bookmark-jump-6" }],
+      "ctrl-7": ["task::Spawn", { "task_name": "bookmark-jump-7" }],
+      "ctrl-8": ["task::Spawn", { "task_name": "bookmark-jump-8" }],
+      "ctrl-9": ["task::Spawn", { "task_name": "bookmark-jump-9" }],
+
+      "ctrl-shift-0": ["task::Spawn", { "task_name": "bookmark-set-0" }],
+      "ctrl-shift-1": ["task::Spawn", { "task_name": "bookmark-set-1" }],
+      "ctrl-shift-2": ["task::Spawn", { "task_name": "bookmark-set-2" }],
+      "ctrl-shift-3": ["task::Spawn", { "task_name": "bookmark-set-3" }],
+      "ctrl-shift-4": ["task::Spawn", { "task_name": "bookmark-set-4" }],
+      "ctrl-shift-5": ["task::Spawn", { "task_name": "bookmark-set-5" }],
+      "ctrl-shift-6": ["task::Spawn", { "task_name": "bookmark-set-6" }],
+      "ctrl-shift-7": ["task::Spawn", { "task_name": "bookmark-set-7" }],
+      "ctrl-shift-8": ["task::Spawn", { "task_name": "bookmark-set-8" }],
+      "ctrl-shift-9": ["task::Spawn", { "task_name": "bookmark-set-9" }]
+    }
+  }
+]
