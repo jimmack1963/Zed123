@@ -133,25 +133,25 @@ The extension also registers a `/bookmark` slash command in the Zed AI panel:
 ## How it works
 
 ```
-┌─────────────────────────────────────────┐
-│              Zed editor                  │
-│                                          │
-│  Ctrl+Shift+1                            │
-│      └─► task::Spawn "bookmark-set-1"    │
-│              └─► bookmark.py set 1       │
-│                  $ZED_FILE               │
-│                  $ZED_ROW                │
-│                  $ZED_COLUMN             │
-│                  └─► writes to           │
-│                      bookmarks.json      │
-│                                          │
-│  Ctrl+1                                  │
-│      └─► task::Spawn "bookmark-jump-1"   │
-│              └─► bookmark.py jump 1      │
-│                  └─► reads next pos      │
-│                      zed file:ln:col     │
-│                      (IPC → navigate)    │
-└─────────────────────────────────────────┘
+┌──────────────────────────────────────────────┐
+│              Zed editor                       │
+│                                               │
+│  Ctrl+Shift+1                                 │
+│      └─► task::Spawn tag:"bookmark-set-1"     │
+│              └─► bookmark.py set 1            │
+│                  $ZED_FILE                    │
+│                  $ZED_ROW                     │
+│                  $ZED_COLUMN                  │
+│                  └─► writes to                │
+│                      bookmarks.json           │
+│                                               │
+│  Ctrl+1                                       │
+│      └─► task::Spawn tag:"bookmark-jump-1"    │
+│              └─► bookmark.py jump 1           │
+│                  └─► reads next pos           │
+│                      zed file:ln:col          │
+│                      (IPC → navigate)         │
+└──────────────────────────────────────────────┘
 ```
 
 Navigation is performed by calling the `zed` CLI, which sends an IPC message to
@@ -200,6 +200,22 @@ is writable:
 
 You can override the location by setting the `BOOKMARK_FILE` environment
 variable.
+
+### Keyboard shortcut opens a Run/Debug/Attach/Launch dialog
+
+If pressing `Ctrl+Shift+1` (or any bookmark shortcut) opens a dialog with
+Run/Debug/Attach/Launch tabs instead of setting the bookmark, the task
+definitions are not being found by Zed. This typically happens when:
+
+1. **Tasks are not installed** — make sure you have copied the task definitions
+   from `config/tasks.json` (or `config/tasks-windows.json` on Windows) into
+   your global Zed tasks file. See [Step 2](#step-2--add-the-tasks) above.
+2. **Keybindings are outdated** — the keybindings now use `task_tag` (tag-based
+   matching) instead of `task_name` (label-based matching), and the context is
+   `"Workspace"` rather than `"Editor"`. Re-copy the keybindings from
+   [`config/keymap.json`](config/keymap.json). See [Step 3](#step-3--add-the-keybindings).
+3. **Task definitions are outdated** — each task must include a `"tags"` field
+   that matches the `task_tag` in the keybinding. Re-copy the task definitions.
 
 ---
 
